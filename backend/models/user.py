@@ -7,10 +7,15 @@ from backend.database import Base
 class User(Base):
     __tablename__ = 'users'
 
-    id = Column(
+    id = Column(                # creates a unique user id created
         Integer,
         primary_key = True,
         index = True
+    )
+
+    role = Column (             # buyer, seller, or admin; everyone's assigned a buyer
+        String,
+        nullable = False 
     )
 
     email = Column(
@@ -19,7 +24,7 @@ class User(Base):
         nullable = False
     )
 
-    passoword = Column(
+    password = Column(
         String, 
         nullable = False 
     )
@@ -30,3 +35,9 @@ class User(Base):
     )
 
     phone = Column(String)
+
+    time_created = Column (
+        String,
+        nullable = False
+    )
+
